@@ -9,7 +9,7 @@
           class="prev-button"
           tabindex="-1"
           @click="handlePrevClick"
-        >上一页</button>
+        >Previous Page</button>
       </li>
       <!-- Show first page -->
       <li
@@ -70,7 +70,7 @@
         <button
           class="next-button"
           @click="handleNextClick"
-        >下一页</button>
+        >Next Page</button>
       </li>
     </ul>
   </div>

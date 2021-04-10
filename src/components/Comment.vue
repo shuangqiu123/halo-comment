@@ -178,10 +178,10 @@ export default {
         if (this.repliedSuccess) {
           this.repliedSuccess()
         }
-        this.successes.push('评论成功')
+        this.successes.push('Comment Successful')
       } else {
         // Show tips
-        this.infoes.push('您的评论已经投递至博主，等待博主审核！')
+        this.infoes.push('Your comment is submitted to the owner and is under review')
       }
 
       this.repliedSuccess = null

@@ -15,7 +15,7 @@
         </div>
         <div class="comment-item-content">
           <p v-if="this.comment.content" v-html="renderedContent"></p>
-          <p v-else>{{ options.comment_content_placeholder || '撰写评论...' }}</p>
+          <p v-else>{{ options.comment_content_placeholder || 'Comment...' }}</p>
         </div>
       </div>
     </div>

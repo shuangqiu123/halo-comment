@@ -12,7 +12,7 @@
           <a v-if="urlValid" :href="comment.authorUrl" target="_blank" v-text="comment.author" />
           <a v-else href="javascript:void(0)" v-text="comment.author" />
         </span>
-        <span v-if="comment.isAdmin" class="header-admin">博主</span>
+        <span v-if="comment.isAdmin" class="header-admin">Blogger</span>
         <span class="header-time">{{ createTimeAgo }}</span>
         <a :href="'#' + comment.id">
           <span class="header-id" :id="comment.id"> #{{ comment.id }} </span>
@@ -28,10 +28,10 @@
         <ul>
           <li v-if="comment.hasChildren">
             <button class="item-control-more" :class="{ active: hasChildrenBody }" @click="handleMoreClick">
-              更多
+              More
             </button>
           </li>
-          <li><button class="item-control-reply" @click="handleReplyClick">回复</button></li>
+          <li><button class="item-control-reply" @click="handleReplyClick">Reply</button></li>
         </ul>
       </div>
     </div>

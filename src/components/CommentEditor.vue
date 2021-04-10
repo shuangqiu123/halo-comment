@@ -3,7 +3,7 @@
     <div autofocus class="comment-modal" @click.self="close" @keydown.esc.once="close">
       <div class="comment-modal-container">
         <div class="comment-poster-editor-emoji">
-          <VEmojiPicker :pack="pack" @select="selectEmoji" v-show="emojiDialogVisible" labelSearch="搜索表情" />
+          <VEmojiPicker :pack="pack" @select="selectEmoji" v-show="emojiDialogVisible" labelSearch="Search Emoji" />
         </div>
         <div class="comment-poster-container active">
           <ul class="comment-poster-controls">
@@ -27,26 +27,26 @@
                       ref="authorInput"
                       v-model="comment.author"
                       @input="handleAuthorInput"
-                      placeholder="昵称 *"
+                      placeholder="Nickname *"
                     />
                     <span></span>
                   </li>
                   <li class="header-item-email">
-                    <input type="email" v-model="comment.email" placeholder="邮箱 *" />
+                    <input type="email" v-model="comment.email" placeholder="Email *" />
                     <span></span>
                   </li>
                   <li class="header-item-website">
-                    <input type="text" v-model="comment.authorUrl" placeholder="网站" />
+                    <input type="text" v-model="comment.authorUrl" placeholder="Website" />
                     <span></span>
                   </li>
                 </ul>
                 <span class="comment-poster-body-reply" v-if="replyingComment"
-                  >回复：@{{ replyingComment.author }} <small>#{{ replyingComment.id }}</small></span
+                  >Reply：@{{ replyingComment.author }} <small>#{{ replyingComment.id }}</small></span
                 >
                 <div class="comment-poster-body-editor">
                   <div class="comment-poster-editor-wrapper">
                     <textarea
-                      placeholder="撰写评论...（1000 个字符内）"
+                      placeholder="Write your comment here...（1000 word limit）"
                       :style="replyingComment == null ? 'height: 146px;' : 'height: 128px;'"
                       v-model="comment.content"
                       @input="handleContentInput"
@@ -62,15 +62,15 @@
                         @click="handleSubmitClick"
                         :disabled="!commentValid"
                       >
-                        评论
+                        Comment
                       </button>
                     </li>
                     <li class="editor-item-preview">
-                      <button class="editor-btn-preview" type="button" @click="handlePreviewClick">预览</button>
+                      <button class="editor-btn-preview" type="button" @click="handlePreviewClick">Preview</button>
                     </li>
                     <li class="editor-item-emoji">
                       <button class="editor-btn-emoji" type="button" @click="toogleDialogEmoji">
-                        表情
+                        Emoji
                       </button>
                     </li>
                   </ul>
@@ -180,7 +180,7 @@ export default {
       this.$emit('close', false)
     },
     exit() {
-      if (this.comment.content && !window.confirm('评论还未发布，是否放弃？')) {
+      if (this.comment.content && !window.confirm('Do you want to discard your comment?')) {
         return
       }
       this.$emit('exit', false)
