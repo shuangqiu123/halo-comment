@@ -6177,19 +6177,22 @@ function timeAgo(time) {
       if (minutes === 0) {
         var leave3 = leave2 % (60 * 1000);
         var seconds = Math.round(leave3 / 1000);
-        return seconds + ' 秒前';
+        if (seconds == 1) return seconds + ' second ago';
+        return seconds + ' seconds ago';
       }
 
-      return minutes + ' 分钟前';
+      if (minutes == 1) return minutes + ' minute ago';
+      return minutes + ' minutes ago';
     }
 
-    return hours + ' 小时前';
+    if (hours == 1) return hours + ' hour ago';
+    return hours + ' hours ago';
   }
 
-  if (days < 0) return '刚刚';
+  if (days < 0) return 'just now';
 
   if (days < 1) {
-    return days + ' 天前';
+    return days + ' days ago';
   } else {
     return formatDate(time, 'yyyy/MM/dd hh:mm');
   }
